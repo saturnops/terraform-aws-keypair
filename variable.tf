@@ -12,3 +12,8 @@ variable "ssm_parameter" {
   default = "/test/ssm"
   type    = string
 }
+
+variable "region" {
+  default = "us-east-2"
+  type    = string
+}
