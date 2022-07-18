@@ -10,7 +10,7 @@ module "key_pair" {
 }
 
 
-resource "aws_ssm_parameter" "secret" {
+resource "aws_ssm_parameter" "ssm_ec2_keypair" {
   name        = var.ssm_parameter
   description = "Stores the private key of ec2 key pair"
   type        = "SecureString"
