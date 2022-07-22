@@ -1,3 +1,9 @@
+## IAM permission Required to run this module
+
+- AmazonEC2FullAccess
+- AmazonSSMFullAccess
+- AmazonVPCFullAccess
+
 # AWS EC2 Keypair
 
 Terraform module which creates EC2 key pair on AWS.
