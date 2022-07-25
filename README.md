@@ -27,14 +27,18 @@ module "key_pair" {
 <!-- BEGIN_TF_DOCS -->
 ## Requirements
 
-No requirements.
+| Name | Version |
+|------|---------|
+| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.0 |
+| <a name="requirement_aws"></a> [aws](#requirement\_aws) | >= 4.21 |
+| <a name="requirement_tls"></a> [tls](#requirement\_tls) | >= 3.4 |
 
 ## Providers
 
 | Name | Version |
 |------|---------|
-| <a name="provider_aws"></a> [aws](#provider\_aws) | 4.20.1 |
-| <a name="provider_tls"></a> [tls](#provider\_tls) | 3.4.0 |
+| <a name="provider_aws"></a> [aws](#provider\_aws) | 4.23.0 |
+| <a name="provider_tls"></a> [tls](#provider\_tls) | 4.0.1 |
 
 ## Modules
 
@@ -46,7 +50,7 @@ No requirements.
 
 | Name | Type |
 |------|------|
-| [aws_ssm_parameter.secret](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/ssm_parameter) | resource |
+| [aws_ssm_parameter.ssm_ec2_keypair](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/ssm_parameter) | resource |
 | [tls_private_key.aws_keypair](https://registry.terraform.io/providers/hashicorp/tls/latest/docs/resources/private_key) | resource |
 
 ## Inputs
@@ -56,13 +60,12 @@ No requirements.
 | <a name="input_environment"></a> [environment](#input\_environment) | Environment identifier for the key pair | `string` | `"dev"` | no |
 | <a name="input_key_name"></a> [key\_name](#input\_key\_name) | The name for the key pair to be generated | `string` | `"test-key"` | no |
 | <a name="input_region"></a> [region](#input\_region) | Specify the region in which key needs to be generate | `string` | `"us-east-2"` | no |
-| <a name="input_ssm_parameter"></a> [ssm\_parameter](#input\_ssm\_parameter) | The name of the ssm parameter for storing the keypair | `string` | `"/test/ssm"` | no |
+| <a name="input_ssm_parameter_path"></a> [ssm\_parameter\_path](#input\_ssm\_parameter\_path) | The name of the ssm parameter for storing the keypair | `string` | `"/test/ssm"` | no |
 
 ## Outputs
 
 | Name | Description |
 |------|-------------|
-| <a name="output__1_tls_private_key"></a> [\_1\_tls\_private\_key](#output\_\_1\_tls\_private\_key) | Warning!! ! Please Save the private key data for future use ! |
-| <a name="output__2_public_key"></a> [\_2\_public\_key](#output\_\_2\_public\_key) | The Public key data |
-| <a name="output__3_key_pair_key_name"></a> [\_3\_key\_pair\_key\_name](#output\_\_3\_key\_pair\_key\_name) | The key pair name. |
+| <a name="output_key_pair_name"></a> [key\_pair\_name](#output\_key\_pair\_name) | The key pair name. |
+| <a name="output_ssm_parameter_arn"></a> [ssm\_parameter\_arn](#output\_ssm\_parameter\_arn) | The key pair ARN. |
 <!-- END_TF_DOCS -->

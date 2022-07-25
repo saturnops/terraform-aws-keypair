@@ -3,8 +3,7 @@ output "key_pair_name" {
   value       = module.key_pair.key_pair_key_name
 }
 
-output "key_pair_arn" {
+output "ssm_parameter_arn" {
   description = "The key pair ARN."
-  value       = module.key_pair.key_pair_arn
+  value       = aws_ssm_parameter.ssm_ec2_keypair.arn
 }
-
