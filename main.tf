@@ -11,12 +11,12 @@ module "key_pair" {
 
 
 resource "aws_ssm_parameter" "ssm_ec2_keypair" {
-  name        = var.ssm_parameter
+  name        = var.ssm_parameter_path
   description = "Stores the private key of ec2 key pair"
   type        = "SecureString"
   value       = tls_private_key.aws_keypair.private_key_pem
   tags = {
     Environment = var.environment
-    Name = var.ssm_parameter
+    Name = var.ssm_parameter_path
   }
 }

@@ -10,7 +10,7 @@ variable "environment" {
   type    = string
 }
 
-variable "ssm_parameter" {
+variable "ssm_parameter_path" {
   description = "The name of the ssm parameter for storing the keypair"
   default = "/test/ssm"
   type    = string
