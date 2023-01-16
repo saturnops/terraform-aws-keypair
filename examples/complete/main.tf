@@ -15,7 +15,7 @@ locals {
 module "key_pair" {
   source = "../../"
 
-  key_name           = format("%s-%s-kp", local.environment, local.name)
-  ssm_parameter      = format("%s-%s-ssm", local.environment, local.name) #SSM parameter secret name
-  
+  key_name      = format("%s-%s-kp", local.environment, local.name)
+  ssm_parameter = format("%s-%s-ssm", local.environment, local.name) #SSM parameter secret name
+
 }

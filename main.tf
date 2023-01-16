@@ -1,7 +1,7 @@
 module "key_pair" {
-  source     = "terraform-aws-modules/key-pair/aws"
-  version    = "2.0.0"
-  key_name   = var.key_name
+  source             = "terraform-aws-modules/key-pair/aws"
+  version            = "2.0.0"
+  key_name           = var.key_name
   create_private_key = true
 }
 
@@ -13,6 +13,6 @@ resource "aws_ssm_parameter" "ssm_ec2_keypair" {
   value       = module.key_pair.private_key_pem
   tags = {
     Environment = var.environment
-    Name = var.ssm_parameter_path
+    Name        = var.ssm_parameter_path
   }
 }
