@@ -1,22 +1,20 @@
-# AWS EC2 Keypair
+# AWS EC2 key pair
 
-Terraform module which creates EC2 key pair on AWS.
+Configuration in this directory creates EC2 key pair
 
-## Usage Example
+## Usage
 
-```hcl
-module "key_pair" {
-  source = "git::https://{GIT_USER}:{GIT_TOKEN}@gitlab.com/saturnops/sal/terraform/aws/ec2-keypair.git?ref=dev"
+To run this example you need to execute:
 
-  region        = var.region
-  environment   = var.environment
-  key_name      = var.key_name
-  ssm_parameter = var.ssm_parameter
-}
-
+```bash
+$ terraform init
+$ terraform plan
+$ terraform apply
 ```
-## IAM Permission
 
+Note that this example may create resources which cost money. Run `terraform destroy` when you don't need these resources.
+
+## IAM Permission
 <!-- BEGINNING OF PRE-COMMIT-PIKE DOCS HOOK -->
 The Policy required is:
 
@@ -82,34 +80,25 @@ The Policy required is:
 
 ## Providers
 
-| Name | Version |
-|------|---------|
-| <a name="provider_aws"></a> [aws](#provider\_aws) | >= 4.21 |
+No providers.
 
 ## Modules
 
 | Name | Source | Version |
 |------|--------|---------|
-| <a name="module_key_pair"></a> [key\_pair](#module\_key\_pair) | terraform-aws-modules/key-pair/aws | 2.0.0 |
+| <a name="module_key_pair"></a> [key\_pair](#module\_key\_pair) | ../../ | n/a |
 
 ## Resources
 
-| Name | Type |
-|------|------|
-| [aws_ssm_parameter.ssm_ec2_keypair](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/ssm_parameter) | resource |
+No resources.
 
 ## Inputs
 
-| Name | Description | Type | Default | Required |
-|------|-------------|------|---------|:--------:|
-| <a name="input_environment"></a> [environment](#input\_environment) | Environment identifier for the key pair | `string` | `"dev"` | no |
-| <a name="input_key_name"></a> [key\_name](#input\_key\_name) | The name for the key pair to be generated | `string` | `"test-key"` | no |
-| <a name="input_ssm_parameter_path"></a> [ssm\_parameter\_path](#input\_ssm\_parameter\_path) | The name of the ssm parameter for storing the keypair | `string` | `"/test/ssm"` | no |
+No inputs.
 
 ## Outputs
 
 | Name | Description |
 |------|-------------|
 | <a name="output_key_pair_name"></a> [key\_pair\_name](#output\_key\_pair\_name) | The key pair name. |
-| <a name="output_ssm_parameter_arn"></a> [ssm\_parameter\_arn](#output\_ssm\_parameter\_arn) | The key pair ARN. |
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
