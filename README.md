@@ -1,76 +1,30 @@
 # AWS EC2 Keypair
 
-Terraform module which creates EC2 key pair on AWS.
+
+### [SquareOps Technologies](https://saturnops.com/) Provide end to end solution for all your DevOps needs
+
+<br>
+
+Terraform module which creates EC2 key pair on AWS. The private key will be stored on SSM.
 
 ## Usage Example
 
 ```hcl
 module "key_pair" {
-  source = "git::https://{GIT_USER}:{GIT_TOKEN}@gitlab.com/saturnops/sal/terraform/aws/ec2-keypair.git?ref=dev"
+  source = "saturnops/terraform-aws-ssh-keypair"
 
-  region        = var.region
-  environment   = var.environment
-  key_name      = var.key_name
-  ssm_parameter = var.ssm_parameter
+  environment   = production
+  key_name      = example-key
+  ssm_parameter = production-example-key
 }
-
 ```
+Refer [examples](https://github.com/saturnops/terraform-aws-ssh-keypair/tree/main/examples) for all examples.
+
+
 ## IAM Permission
-
-<!-- BEGINNING OF PRE-COMMIT-PIKE DOCS HOOK -->
-The Policy required is:
-
-```json
-{
-    "Version": "2012-10-17",
-    "Statement": [
-        {
-            "Sid": "VisualEditor0",
-            "Effect": "Allow",
-            "Action": [
-                "ec2:CreateKeyPair",
-                "ec2:CreateTags",
-                "ec2:DeleteKeyPair",
-                "ec2:DeleteTags",
-                "ec2:DescribeKeyPairs",
-                "ec2:ImportKeyPair"
-            ],
-            "Resource": [
-                "*"
-            ]
-        },
-        {
-            "Sid": "VisualEditor1",
-            "Effect": "Allow",
-            "Action": [
-                "kms:Decrypt"
-            ],
-            "Resource": [
-                "*"
-            ]
-        },
-        {
-            "Sid": "VisualEditor2",
-            "Effect": "Allow",
-            "Action": [
-                "ssm:AddTagsToResource",
-                "ssm:DeleteParameter",
-                "ssm:DescribeParameters",
-                "ssm:GetParameter",
-                "ssm:GetParameters",
-                "ssm:ListTagsForResource",
-                "ssm:PutParameter"
-            ],
-            "Resource": [
-                "*"
-            ]
-        }
-    ]
-}
+The required IAM permissions to create resources from this module can be found [here](https://github.com/saturnops/terraform-aws-ssh-keypair/blob/main/IAM.md)
 
 
-```
-<!-- END OF PRE-COMMIT-PIKE DOCS HOOK -->
 <!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 ## Requirements
 
@@ -102,14 +56,14 @@ The Policy required is:
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| <a name="input_environment"></a> [environment](#input\_environment) | Environment identifier for the key pair | `string` | `"dev"` | no |
-| <a name="input_key_name"></a> [key\_name](#input\_key\_name) | The name for the key pair to be generated | `string` | `"test-key"` | no |
-| <a name="input_ssm_parameter_path"></a> [ssm\_parameter\_path](#input\_ssm\_parameter\_path) | The name of the ssm parameter for storing the keypair | `string` | `"/test/ssm"` | no |
+| <a name="input_environment"></a> [environment](#input\_environment) | Environment identifier for the key pair | `string` | `""` | no |
+| <a name="input_key_name"></a> [key\_name](#input\_key\_name) | The name for the key pair to be generated | `string` | `""` | no |
+| <a name="input_ssm_parameter_path"></a> [ssm\_parameter\_path](#input\_ssm\_parameter\_path) | The name of the ssm parameter for storing the keypair | `string` | `"/example/ssm"` | no |
 
 ## Outputs
 
 | Name | Description |
 |------|-------------|
 | <a name="output_key_pair_name"></a> [key\_pair\_name](#output\_key\_pair\_name) | The key pair name. |
-| <a name="output_ssm_parameter_arn"></a> [ssm\_parameter\_arn](#output\_ssm\_parameter\_arn) | The key pair ARN. |
+| <a name="output_ssm_parameter_arn"></a> [ssm\_parameter\_arn](#output\_ssm\_parameter\_arn) | The SSM parameter ARN of key pair. |
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
