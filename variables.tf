@@ -1,17 +1,17 @@
 variable "key_name" {
   description = "The name for the key pair to be generated"
-  default     = "test-key"
+  default     = ""
   type        = string
 }
 
 variable "environment" {
   description = "Environment identifier for the key pair"
-  default     = "dev"
+  default     = ""
   type        = string
 }
 
 variable "ssm_parameter_path" {
   description = "The name of the ssm parameter for storing the keypair"
-  default     = "/test/ssm"
+  default     = "/example/ssm"
   type        = string
 }
