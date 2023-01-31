@@ -11,7 +11,7 @@ Terraform module which creates EC2 key pair on AWS. The private key will be stor
 
 ```hcl
 module "key_pair" {
-  source = "saturnops/terraform-aws-ssh-keypair"
+  source = "saturnops/keypair/aws"
 
   environment   = production
   key_name      = example-key
@@ -20,6 +20,18 @@ module "key_pair" {
 ```
 Refer [examples](https://github.com/saturnops/terraform-aws-ssh-keypair/tree/main/examples) for all examples.
 
+
+## Retrieve Private Key
+
+To Retrieve the Private key from SSM:
+```bash
+aws ssm get-parameter --region=us-east-1 --name "production-example-key" --with-decryption --output text --query Parameter.Value
+```
+
+Additionally, to save the private to a file:
+```bash
+aws ssm get-parameter --region=us-east-1 --name "production-example-key" --with-decryption --output text --query Parameter.Value > private-key.pem
+```
 
 ## IAM Permission
 The required IAM permissions to create resources from this module can be found [here](https://github.com/saturnops/terraform-aws-ssh-keypair/blob/main/IAM.md)

@@ -14,10 +14,11 @@ $ terraform apply
 
 Note that this example may create resources which cost money. Run `terraform destroy` when you don't need these resources.
 
-<<<<<<< HEAD
-## IAM Permission
-<!-- BEGINNING OF PRE-COMMIT-PIKE DOCS HOOK -->
-The Policy required is:
+
+<!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
+## Requirements
+
+| Name | Version |
 |------|---------|
 | <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.0 |
 | <a name="requirement_aws"></a> [aws](#requirement\_aws) | >= 4.21 |
@@ -31,11 +32,7 @@ No providers.
 
 | Name | Source | Version |
 |------|--------|---------|
-<<<<<<< HEAD
-| <a name="module_key_pair"></a> [key\_pair](#module\_key\_pair) | ../../ | n/a |
-=======
-| <a name="module_key_pair"></a> [key\_pair](#module\_key\_pair) | saturnops/terraform-aws-ssh-keypair | n/a |
->>>>>>> e0e34e1c6a140fc579082a1e69ac971caff29059
+| <a name="module_key_pair"></a> [key\_pair](#module\_key\_pair) | saturnops/keypair/aws | n/a |
 
 ## Resources
 
