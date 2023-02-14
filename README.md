@@ -1,11 +1,11 @@
 # AWS EC2 Keypair
 
 
-### [SquareOps Technologies](https://saturnops.com/) Provide end to end solution for all your DevOps needs
+
 
 <br>
 
-Terraform module which creates EC2 key pair on AWS. The private key will be stored on SSM.
+Terraform module which creates EC2 key pair on AWS. The private key will be stored in AWS Systems Manager's Parameter Store.
 
 ## Usage Example
 
@@ -13,12 +13,12 @@ Terraform module which creates EC2 key pair on AWS. The private key will be stor
 module "key_pair" {
   source = "saturnops/keypair/aws"
 
-  environment   = production
-  key_name      = example-key
-  ssm_parameter = production-example-key
+  environment        = "production"
+  key_name           = "example-key"
+  ssm_parameter_path = "production-example-key"
 }
 ```
-Refer [examples](https://github.com/saturnops/terraform-aws-ssh-keypair/tree/main/examples) for all examples.
+Refer [this](https://github.com/saturnops/terraform-aws-ssh-keypair/tree/main/examples) for more examples.
 
 
 ## Retrieve Private Key
@@ -79,3 +79,21 @@ The required IAM permissions to create resources from this module can be found [
 | <a name="output_key_pair_name"></a> [key\_pair\_name](#output\_key\_pair\_name) | The key pair name. |
 | <a name="output_ssm_parameter_arn"></a> [ssm\_parameter\_arn](#output\_ssm\_parameter\_arn) | The SSM parameter ARN of key pair. |
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
+
+
+
+
+
+
+##               
+
+
+
+
+
+- Please give our GitHub repository a ⭐️ to show your support and increase its visibility.. 
+
+
+
+
+
