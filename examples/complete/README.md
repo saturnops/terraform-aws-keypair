@@ -46,5 +46,6 @@ No inputs.
 
 | Name | Description |
 |------|-------------|
-| <a name="output_key_pair_name"></a> [key\_pair\_name](#output\_key\_pair\_name) | The key pair name. |
+| <a name="output_key_pair_name"></a> [key\_pair\_name](#output\_key\_pair\_name) | The name of the key pair generated for the EC2 instance. |
+| <a name="output_ssm_parameter_arn"></a> [ssm\_parameter\_arn](#output\_ssm\_parameter\_arn) | The Amazon Resource Name (ARN) of the SSM parameter used to store the EC2 instance key pair. |
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->

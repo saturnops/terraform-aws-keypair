@@ -1,9 +1,9 @@
 output "key_pair_name" {
-  description = "The key pair name."
+  description = "The name of the key pair generated for the EC2 instance."
   value       = module.key_pair.key_pair_name
 }
 
 output "ssm_parameter_arn" {
-  description = "The SSM parameter ARN of key pair."
+  description = "The Amazon Resource Name (ARN) of the SSM parameter used to store the EC2 instance key pair."
   value       = aws_ssm_parameter.ssm_ec2_keypair.arn
 }
